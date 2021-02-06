@@ -1,3 +1,5 @@
+from time import strftime
+
 from django.contrib.auth.models import User
 from django.db import models
 
@@ -14,4 +16,7 @@ class Evento(models.Model):
         db_table = 'evento'
 
     def __str__(self):
-        return self.titulo  
+        return self.titulo 
+
+    def get_data_evento(self):
+        return self.data_evento.strftime('%d/%m/%Y %H:%M')
